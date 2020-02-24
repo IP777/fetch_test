@@ -1,0 +1,27 @@
+.hdcontainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0;
+  padding-bottom: 30px;
+}
+.grid-item {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+}
+.grid-img {
+  position: relative;
+  width: 350px;
+}
+
+.instance {
+  position: absolute;
+  /* transform: translateY(-40px); */
+  transform: translate(20px, -40px);
+}
+.like,
+.downloads {
+  margin: 0;
+  color: #ffffff;
+}

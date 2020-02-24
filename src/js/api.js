@@ -34,7 +34,7 @@ const myHttpRequest = {
         return response.json();
       })
       .then(data => {
-        //console.log(data);
+        console.log(data);
         container.innerHTML = template(data);
       })
       .catch(error => {

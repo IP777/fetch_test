@@ -1,24 +1,41 @@
+//https://api.themoviedb.org/3/search/movie?api_key=8b49236e6b82eb62c6f5cab7126e8684&page=1&query=batman&include_adult=false&language=en-US
+//https://api.themoviedb.org/3/movie/11415/similar?api_key=8b49236e6b82eb62c6f5cab7126e8684
+//https://api.themoviedb.org/3/movie/76341?api_key=8b49236e6b82eb62c6f5cab7126e8684&language=en-US
 const myHttpRequest = {
-  baseUrl: 'https://pixabay.com/',
-  API_KEY: '15197033-6a0a9e6d0bedb15a0a6a5ba9a',
+  baseUrl: 'https://api.themoviedb.org/3/',
+  API_KEY: '8b49236e6b82eb62c6f5cab7126e8684',
   request: 'flower',
   pagination: 1,
 
-  buildUrl(pageIndex) {
-    const URL = `${this.baseUrl}api/?key=${this.API_KEY}&q=${this.request}&image_type=photo&per_page=12&page=${pageIndex}`;
-    return URL;
-  },
   createMarkup(condition, template, container) {
     this.request = condition;
-    fetch(this.buildUrl(this.pagination))
+    fetch(
+      `${this.baseUrl}search/movie?api_key=${this.API_KEY}&page=${this.pagination}&query=${this.request}&include_adult=false&language=en-US`,
+    )
       .then(response => {
         //console.log(response);
         return response.json();
       })
       .then(data => {
-        //console.log(template);
-        const markup = data.hits.map(img_card => template(img_card)).join('');
+        console.log(data.results);
+        const markup = data.results
+          .map(img_card => template(img_card))
+          .join('');
         container.innerHTML = markup;
+      })
+      .catch(error => {
+        console.log(`Oh no, erorr ${error}`);
+      });
+  },
+
+  createMarkupId(id, template, container) {
+    fetch(`${this.baseUrl}movie/${id}?api_key=${this.API_KEY}&language=en-US`)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        //console.log(data);
+        container.innerHTML = template(data);
       })
       .catch(error => {
         console.log(`Oh no, erorr ${error}`);

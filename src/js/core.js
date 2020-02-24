@@ -7,14 +7,14 @@ import render from './api';
 
 //render.createMarkup( запрос, шаблон , контейнер куда будет рендерить),
 refs.markupBtn1.addEventListener('click', () =>
-  render.createMarkup('flower', cardTamplate, refs.hbContainer),
+  render.createMarkup('batman', cardTamplate, refs.hbContainer),
 );
 refs.markupBtn2.addEventListener('click', () =>
   render.createMarkup('car', cardTamplate1, refs.hbContainer),
 );
-refs.markupBtn3.addEventListener('click', () =>
-  render.createMarkup('house', cardTamplate2, refs.hbContainer),
-);
+refs.markupBtn3.addEventListener('click', () => {
+  render.createMarkupId('11415', cardTamplate2, refs.hbContainer);
+});
 refs.deleteBtn.addEventListener('click', deleteHandler);
 
 function deleteHandler() {

@@ -1,6 +1,11 @@
 <li class="grid-item">
-    <img class="grid-img" src="{{webformatURL}}" alt="{{tags}}" data-larg-image="{{largeImageURL}}" />
+    {{#if backdrop_path}}
+    <img class="grid-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{title}}"
+        data-poster="{{poster_path}}" />
+    {{else}}
+    <img class="grid-img" src="http://placehold.it/500x280">
+    {{/if}}
     <div class='instance'>
-        <p class='downloads'>Downloads-{{downloads}}</p>
+        <p class='like'>vote_count-{{vote_count}}</p>
     </div>
 </li>

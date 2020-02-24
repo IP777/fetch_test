@@ -1,4 +1,5 @@
 const refs = {
+  serchArea: document.querySelector('#js-serchArea'),
   markupBtn1: document.querySelector('#js-markupBtn1'),
   markupBtn2: document.querySelector('#js-markupBtn2'),
   markupBtn3: document.querySelector('#js-markupBtn3'),

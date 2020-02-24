@@ -48,3 +48,9 @@ input[type='button'] {
 input[type='button']:hover {
   background-color: rgb(103, 103, 175);
 }
+
+input[type='search'] {
+  background-color: rgb(255, 255, 255);
+  padding: 0;
+  margin: 0;
+}
